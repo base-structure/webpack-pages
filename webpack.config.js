@@ -5,10 +5,10 @@ var root = path.resolve(__dirname)
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const {entry, plugins} = require('./page.config')
+const {entry, plugins} = require('./pages.config')
 
 module.exports = {
-    // devtool: 'source-map',
+    devtool: 'source-map',
     mode: 'development',
     entry: {
         ...entry
@@ -20,8 +20,7 @@ module.exports = {
     },
     resolve: {
         alias: {
-            '@': resolve('src/'),
-            'lib': resolve('lib/')
+            '@': resolve('src/')
         }
     },
     devServer: {
