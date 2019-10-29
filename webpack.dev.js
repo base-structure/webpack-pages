@@ -2,8 +2,6 @@ var path  = require('path')
 const resolve = dir => path.resolve(__dirname, dir);
 
 var root = path.resolve(__dirname)
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
@@ -34,7 +32,7 @@ module.exports = {
         rules: [{
             test: /\.(sc|c)ss$/,
             use: [
-                MiniCssExtractPlugin.loader,
+                "style-loader",
                 {
                     loader: 'css-loader',
                     options: {
@@ -88,18 +86,6 @@ module.exports = {
     },
     plugins: [
         ...plugins,
-        new MiniCssExtractPlugin({
-            filename: '[name].css',
-            chunkFilename: '[id].css'
-        }),
-        new OptimizeCssAssetsPlugin({
-          assetNameRegExp: /\.css$/g,
-          cssProcessor: require('cssnano'),
-          cssProcessorPluginOptions: {
-            preset: ['default', { discardComments: { removeAll: true } }],
-          },
-          canPrint: true
-        }),
         new CopyWebpackPlugin([
             {
                 from: resolve('public/'),

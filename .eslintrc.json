@@ -9,6 +9,7 @@
     },
     "rules": {
         "no-console": 1,
+        "no-debugger": 1,
         "indent": [1, 4],
         "semi": [1, "always"],
         "no-unused-vars": [1]

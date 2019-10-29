@@ -10,8 +10,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const {entry, plugins} = require('./pages.config')
 
 module.exports = {
-    devtool: 'source-map',
-    mode: 'development',
+    mode: 'production',
     entry: {
         ...entry
     },
