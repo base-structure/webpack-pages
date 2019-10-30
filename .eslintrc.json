@@ -8,8 +8,12 @@
         "sourceType": "module"
     },
     "rules": {
-        "no-console": 1,
+        "no-alert": 1,
+        "no-console": [ 1, { "allow": ["warn", "error"] }],
         "no-debugger": 1,
+        "no-extra-semi": 1,
+        "no-unreachable": 1,
+        "eqeqeq": [1, "always"],
         "indent": [1, 4],
         "semi": [1, "always"],
         "no-unused-vars": [1]

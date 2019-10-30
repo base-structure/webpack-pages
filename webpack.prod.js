@@ -16,18 +16,13 @@ module.exports = {
     },
     output: {
         path: path.join(root, 'dist'),
-        filename: '[name].js',
+        filename: '[name].[hash:5].js',
         publicPath: ''
     },
     resolve: {
         alias: {
             '@': resolve('src/')
         }
-    },
-    devServer: {
-        publicPath: '',
-        progress: true,
-        contentBase: './public/'
     },
     module: {
         rules: [{
@@ -88,7 +83,7 @@ module.exports = {
     plugins: [
         ...plugins,
         new MiniCssExtractPlugin({
-            filename: '[name].css',
+            filename: '[name].[hash:5].css',
             chunkFilename: '[id].css'
         }),
         new OptimizeCssAssetsPlugin({

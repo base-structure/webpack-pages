@@ -31,5 +31,5 @@ const page = (name, chunks=[]) => {
         plugins
     }
 })([
-    page('home'),
+    page('index'),
 ])

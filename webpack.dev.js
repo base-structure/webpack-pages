@@ -3,7 +3,6 @@ const resolve = dir => path.resolve(__dirname, dir);
 
 var root = path.resolve(__dirname)
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const {entry, plugins} = require('./pages.config')
 
@@ -25,8 +24,18 @@ module.exports = {
     },
     devServer: {
         publicPath: '',
+        contentBase: './public/',
+        host:'0.0.0.0',
+        overlay: true,
+        stats: {
+            modules: false
+        },
         progress: true,
-        contentBase: './public/'
+        watchOptions: {
+          ignored: /node_modules/,
+          aggregateTimeout: 300,
+          poll: 1000
+        }
     },
     module: {
         rules: [{
@@ -85,15 +94,6 @@ module.exports = {
         }]
     },
     plugins: [
-        ...plugins,
-        new CopyWebpackPlugin([
-            {
-                from: resolve('public/'),
-                to: resolve('dist/')
-            }
-        ])
-    ],
-    optimization: {
-        minimize: true
-    }
+        ...plugins
+    ]
 }
