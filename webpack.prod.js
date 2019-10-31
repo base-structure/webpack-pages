@@ -7,7 +7,7 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-const {entry, plugins} = require('./pages.config')
+const {entry, plugins} = require('./webpack-helper')
 
 module.exports = {
     mode: 'production',
@@ -94,6 +94,14 @@ module.exports = {
                     outputPath: 'images'
                 }
             }]
+        }, {
+            test: /\.(html)$/,
+            use: {
+                loader: 'html-loader',
+                options: {
+                    minimize: true
+                }
+            }
         }]
     },
     plugins: [

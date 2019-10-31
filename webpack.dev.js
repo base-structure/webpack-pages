@@ -2,9 +2,8 @@ var path  = require('path')
 const resolve = dir => path.resolve(__dirname, dir);
 
 var root = path.resolve(__dirname)
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const {entry, plugins} = require('./pages.config')
+const {entry, plugins} = require('./webpack-helper')
 
 module.exports = {
     devtool: 'source-map',
@@ -99,6 +98,14 @@ module.exports = {
                     limit: 8192
                 }
             }]
+        }, {
+            test: /\.(html)$/,
+            use: {
+                loader: 'html-loader',
+                options: {
+                    // attrs: [':data-src']
+                }
+            }
         }]
     },
     plugins: [
