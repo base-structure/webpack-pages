@@ -3,8 +3,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const page = (name, chunks=[]) => {
     return {
         entry: `${name}`,
-        js: `./src/pages/${name}/${name}.js`,
-        template: `./src/pages/${name}/${name}.html`,
+        js: `./src/pages/${name}/index.js`,
+        template: `./src/pages/${name}/index.html`,
         filename: `${name}.html`,
         chunks: [
             `${name}`,

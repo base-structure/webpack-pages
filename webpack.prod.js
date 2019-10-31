@@ -75,12 +75,23 @@ module.exports = {
         }, {
             test: /\.(ttf|eot|svg|woff|woff2)$/,
             use: [{
-                loader: 'file-loader',
+                loader: 'url-loader',
                 options: {
                     limit: 50000,
                     name: '[name].[ext]',
                     publicPath: 'font/',
                     outputPath: 'font'
+                }
+            }]
+        }, {
+            test: /\.(png|jp(e)g|gif)$/i,
+            use: [{
+                loader: 'url-loader',
+                options: {
+                    limit: 8192,
+                    name: '[name].[hash:5].[ext]',
+                    publicPath: 'images/',
+                    outputPath: 'images'
                 }
             }]
         }]

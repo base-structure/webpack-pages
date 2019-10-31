@@ -18,6 +18,7 @@
     "mini-css-extract-plugin": "^0.8.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "sass": "^1.23.1",
+    "url-loader": "^2.2.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.9.0"
@@ -31,7 +32,6 @@
     "eslint": "^6.6.0",
     "eslint-friendly-formatter": "^4.0.1",
     "eslint-loader": "^3.0.2",
-    "file-loader": "^4.2.0",
     "node-sass": "^4.13.0",
     "postcss": "^7.0.21",
     "postcss-loader": "^3.0.0",
@@ -40,7 +40,6 @@
     "sass-loader": "^8.0.0",
     "style-loader": "^1.0.0",
     "stylelint": "^11.1.1",
-    "url-loader": "^2.2.0",
     "webpack-dashboard": "^3.2.0"
   }
 }

@@ -7,6 +7,6 @@ function add(a, b) {
 
 document.title = "hello";
 
-console.warn(document.title);
+console.warn(process.env.NODE_ENV);
 
 export default add;
