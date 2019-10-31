@@ -19,6 +19,11 @@ module.exports = {
         filename: '[name].[hash:5].js',
         publicPath: ''
     },
+    stats: {
+        modules: false,
+        children: false,
+        // entrypoints: false
+    },
     resolve: {
         alias: {
             '@': resolve('src/')

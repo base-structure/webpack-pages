@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --config webpack.prod.js",
+    "clean": "rimraf dist/*",
+    "build": "npm run clean -s & webpack --config webpack.prod.js --progress",
     "serve": "webpack-dev-server --config webpack.dev.js"
   },
   "author": "",
@@ -35,6 +36,7 @@
     "postcss": "^7.0.21",
     "postcss-loader": "^3.0.0",
     "resolve-url-loader": "^3.1.0",
+    "rimraf": "^3.0.0",
     "sass-loader": "^8.0.0",
     "style-loader": "^1.0.0",
     "stylelint": "^11.1.1",
