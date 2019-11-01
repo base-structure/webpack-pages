@@ -3,7 +3,7 @@ const resolve = dir => path.resolve(__dirname, dir);
 
 var root = path.resolve(__dirname)
 
-const {entry, plugins} = require('./webpack-helper')
+const {entry, plugins, openPage} = require('./webpack-helper')
 
 module.exports = {
     devtool: 'source-map',
@@ -26,6 +26,9 @@ module.exports = {
         contentBase: './public/',
         host:'0.0.0.0',
         overlay: true,
+        useLocalIp: true,
+        open: true,
+        openPage: openPage,
         stats: {
             modules: false
         },
@@ -95,7 +98,8 @@ module.exports = {
             use: [{
                 loader: 'url-loader',
                 options: {
-                    limit: 8192
+                    limit: 8192,
+                    name: '[name].[hash:5].[ext]'
                 }
             }]
         }, {

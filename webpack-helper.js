@@ -3,6 +3,7 @@ const pages = require('./src/pages');
 
 const entry = [];
 const plugins = [];
+const openPage = pages ? `${pages[0].name}.html` : '';
 
 const registerEntry = ({name}) => {
     entry[`${name}`] = `./src/pages/${name}/index.js`;
@@ -28,5 +29,6 @@ pages.forEach((item) => {
 
 module.exports = {
     entry,
-    plugins
+    plugins,
+    openPage
 }
