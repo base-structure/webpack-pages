@@ -18,7 +18,19 @@ const registerPlugin = ({
     plugins.push(new HtmlWebpackPlugin({
         template: template || `./src/pages/${name}/index.html`,
         filename: filename || `${name}.html`,
-        chunks: chunks || [`${name}`]
+        chunks: chunks || [`${name}`],
+        minify: {
+            removeComments: true,
+            collapseWhitespace: true,
+            removeRedundantAttributes: true,
+            useShortDoctype: true,
+            removeEmptyAttributes: true,
+            removeStyleLinkTypeAttributes: true,
+            keepClosingSlash: true,
+            minifyJS: true,
+            minifyCSS: true,
+            minifyURLs: true
+        }
     }));
 }
 
