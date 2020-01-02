@@ -1,0 +1,21 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "rules": {
+        "no-alert": 0,
+        "no-console": [ 0, { "allow": ["warn", "error"] }],
+        "no-debugger": 0,
+        "no-extra-semi": 0,
+        "no-unreachable": 0,
+        "eqeqeq": [0, "always"],
+        "indent": [1, 4],
+        "semi": [1, "always"],
+        "no-unused-vars": [0]
+    }
+}

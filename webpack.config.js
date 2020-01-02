@@ -23,7 +23,8 @@ module.exports = {
     resolve: {
         alias: {
             '@': resolve('src/')
-        }
+        },
+        extensions: [ '.ts', '.js' ]
     },
     devServer: {
         publicPath: '',
@@ -57,6 +58,10 @@ module.exports = {
                     }
                 }
             ]
+        }, {
+            test: /\.ts?$/,
+            use: 'ts-loader',
+            exclude: /node_modules/
         }, {
             test: /\.js$/,
             exclude: /node_modules/,

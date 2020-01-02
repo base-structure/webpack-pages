@@ -67,6 +67,10 @@ module.exports = {
                 }
             ]
         }, {
+            test: /\.ts?$/,
+            use: 'ts-loader',
+            exclude: /node_modules/
+        }, {
             test: /\.js$/,
             exclude: /node_modules/,
             enforce: 'pre',
@@ -78,7 +82,8 @@ module.exports = {
             }, {
                 loader: 'eslint-loader',
                 options: {
-                    formatter: require('eslint-friendly-formatter')
+                    formatter: require('eslint-friendly-formatter'),
+                    configFile: path.join(root, '.eslintrc.dev.json')
                 }
             }]
         }, {
