@@ -1,13 +1,12 @@
-{
-    "env": {
-        "browser": true,
-        "es6": true
-    },
-    "parserOptions": {
-        "ecmaVersion": 2018,
-        "sourceType": "module"
-    },
-    "rules": {
+module.exports = {
+    parser: '@typescript-eslint/parser',
+    plugins: ['@typescript-eslint'],
+    rules: {
+        // 优先使用 interface 而不是 type
+        '@typescript-eslint/consistent-type-definitions': [
+            "error",
+            "interface"
+        ],
         "no-alert": 0,
         "no-console": [ 0, { "allow": ["warn", "error"] }],
         "no-debugger": 0,

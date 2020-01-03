@@ -68,8 +68,16 @@ module.exports = {
             ]
         }, {
             test: /\.ts?$/,
-            use: 'ts-loader',
-            exclude: /node_modules/
+            exclude: /node_modules/,
+            enforce: 'pre',
+            use: [{
+                loader: 'ts-loader',
+            }, {
+                loader: 'eslint-loader',
+                options: {
+                    configFile: path.join(root, '.eslintrc.ts.dev.js')
+                }
+            }]
         }, {
             test: /\.js$/,
             exclude: /node_modules/,
