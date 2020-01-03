@@ -1,11 +1,11 @@
 var path  = require('path')
-const resolve = dir => path.resolve(__dirname, dir);
+const resolve = dir => path.resolve(__dirname, dir)
 
 var root = path.resolve(__dirname)
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 const {entry, plugins} = require('./pages.config')
 
@@ -98,12 +98,12 @@ module.exports = {
             chunkFilename: '[id].css'
         }),
         new OptimizeCssAssetsPlugin({
-          assetNameRegExp: /\.css$/g,
-          cssProcessor: require('cssnano'),
-          cssProcessorPluginOptions: {
-            preset: ['default', { discardComments: { removeAll: true } }],
-          },
-          canPrint: true
+            assetNameRegExp: /\.css$/g,
+            cssProcessor: require('cssnano'),
+            cssProcessorPluginOptions: {
+                preset: ['default', { discardComments: { removeAll: true } }],
+            },
+            canPrint: true
         }),
         new CopyWebpackPlugin([
             {

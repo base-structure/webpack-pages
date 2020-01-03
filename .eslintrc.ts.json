@@ -1,0 +1,19 @@
+{
+    "parser": "@typescript-eslint/parser",
+    "plugins": ["@typescript-eslint"],
+    "rules": {
+        "@typescript-eslint/consistent-type-definitions": [
+            "error",
+            "interface"
+        ],
+        "no-alert": 1,
+        "no-console": [ 0, { "allow": ["warn", "error"] }],
+        "no-debugger": 0,
+        "no-extra-semi": 1,
+        "no-unreachable": 1,
+        "eqeqeq": [0, "always"],
+        "indent": [1, 4],
+        "semi": [1, "never"],
+        "no-unused-vars": [0]
+    }
+}

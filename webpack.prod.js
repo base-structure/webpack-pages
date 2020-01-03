@@ -1,11 +1,11 @@
 var path  = require('path')
-const resolve = dir => path.resolve(__dirname, dir);
+const resolve = dir => path.resolve(__dirname, dir)
 
 var root = path.resolve(__dirname)
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 const {entry, plugins} = require('./webpack-helper')
@@ -28,7 +28,8 @@ module.exports = {
     resolve: {
         alias: {
             '@': resolve('src/')
-        }
+        },
+        extensions: [ '.ts', '.js' ]
     },
     module: {
         rules: [{
@@ -60,19 +61,17 @@ module.exports = {
         }, {
             test: /\.ts?$/,
             exclude: /node_modules/,
-            enforce: 'pre',
             use: [{
                 loader: 'ts-loader',
             }, {
                 loader: 'eslint-loader',
                 options: {
-                    configFile: path.join(root, '.eslintrc.ts.dev.js')
+                    configFile: path.join(root, '.eslintrc.ts.json')
                 }
             }]
         }, {
             test: /\.js$/,
             exclude: /node_modules/,
-            enforce: 'pre',
             use: [{
                 loader: 'babel-loader',
                 options: {
@@ -82,7 +81,7 @@ module.exports = {
                 loader: 'eslint-loader',
                 options: {
                     formatter: require('eslint-friendly-formatter'),
-                    configFile: path.join(root, '.eslintrc.prod.json')
+                    configFile: path.join(root, '.eslintrc.json')
                 }
             }]
         }, {
@@ -124,12 +123,12 @@ module.exports = {
             chunkFilename: '[id].css'
         }),
         new OptimizeCssAssetsPlugin({
-          assetNameRegExp: /\.css$/g,
-          cssProcessor: require('cssnano'),
-          cssProcessorPluginOptions: {
-            preset: ['default', { discardComments: { removeAll: true } }],
-          },
-          canPrint: true
+            assetNameRegExp: /\.css$/g,
+            cssProcessor: require('cssnano'),
+            cssProcessorPluginOptions: {
+                preset: ['default', { discardComments: { removeAll: true } }],
+            },
+            canPrint: true
         }),
         new CopyWebpackPlugin([
             {

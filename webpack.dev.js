@@ -19,7 +19,8 @@ module.exports = {
     resolve: {
         alias: {
             '@': resolve('src/')
-        }
+        },
+        extensions: [ '.ts', '.js' ]
     },
     devServer: {
         publicPath: '',
@@ -34,9 +35,9 @@ module.exports = {
         },
         progress: true,
         watchOptions: {
-          ignored: /node_modules/,
-          aggregateTimeout: 300,
-          poll: 1000
+            ignored: /node_modules/,
+            aggregateTimeout: 300,
+            poll: 1000
         }
     },
     module: {
@@ -69,19 +70,17 @@ module.exports = {
         }, {
             test: /\.ts?$/,
             exclude: /node_modules/,
-            enforce: 'pre',
             use: [{
                 loader: 'ts-loader',
             }, {
                 loader: 'eslint-loader',
                 options: {
-                    configFile: path.join(root, '.eslintrc.ts.dev.js')
+                    configFile: path.join(root, '.eslintrc.ts.json')
                 }
             }]
         }, {
             test: /\.js$/,
             exclude: /node_modules/,
-            enforce: 'pre',
             use: [{
                 loader: 'babel-loader',
                 options: {
@@ -91,7 +90,7 @@ module.exports = {
                 loader: 'eslint-loader',
                 options: {
                     formatter: require('eslint-friendly-formatter'),
-                    configFile: path.join(root, '.eslintrc.dev.json')
+                    configFile: path.join(root, '.eslintrc.json')
                 }
             }]
         }, {
