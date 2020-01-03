@@ -1,13 +1,13 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const pages = require('./src/pages');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const pages = require('./src/pages')
 
-const entry = [];
-const plugins = [];
-const openPage = pages ? `${pages[0].name}.html` : '';
+const entry = []
+const plugins = []
+const openPage = pages ? `${pages[0].name}.html` : ''
 
 const registerEntry = ({name}) => {
-    entry[`${name}`] = `./src/pages/${name}/index.js`;
-};
+    entry[`${name}`] = `./src/pages/${name}/index.js`
+}
 
 const registerPlugin = ({
     name,
@@ -31,13 +31,13 @@ const registerPlugin = ({
             minifyCSS: true,
             minifyURLs: true
         }
-    }));
+    }))
 }
 
 pages.forEach((item) => {
-    registerEntry(item);
-    registerPlugin(item);
-});
+    registerEntry(item)
+    registerPlugin(item)
+})
 
 module.exports = {
     entry,

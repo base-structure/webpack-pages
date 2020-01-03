@@ -1,5 +1,5 @@
 var path  = require('path')
-const resolve = dir => path.resolve(__dirname, dir);
+const resolve = dir => path.resolve(__dirname, dir)
 
 var root = path.resolve(__dirname)
 
